@@ -1,1 +1,46 @@
+:root {
+    --gold: #b8860b;
+}
 
+.dancing-script title-text {
+  font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  color: var(--gold);
+}
+
+.quicksand .main-text {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
+}
+
+
+.league-spartan .subtitle-text {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.75rem;
+  color: var(--gold);
+}
+
+.centre-middle {
+    text-align: center;
+}
+
+.center-left {
+    text-align: left;
+}
+
+.center-right {
+    text-align: right;
+}
+
+.hyperlinks {
+    font-family: "Quicksand", sans-serif;
+    color: var(--gold);
+}
