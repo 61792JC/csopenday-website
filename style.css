@@ -1,8 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=League+Spartan:wght@500&family=Quicksand:wght@300..700&display=swap");
 :root {
     --gold: #b8860b;
 }
 
-.dancing-script title-text {
+.title-text {
   font-family: "Dancing Script", cursive;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -11,7 +12,7 @@
   color: var(--gold);
 }
 
-.quicksand .main-text {
+.main-text {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
   font-weight: 350;
@@ -19,7 +20,7 @@
 }
 
 
-.league-spartan .subtitle-text {
+.subtitle-text {
   font-family: "League Spartan", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -28,7 +29,7 @@
   color: var(--gold);
 }
 
-.centre-middle {
+.center-middle {
     text-align: center;
 }
 
