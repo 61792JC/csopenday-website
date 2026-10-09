@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=League+Spartan:wght@500&family=Quicksand:wght@300..700&display=swap");
+
 :root {
-    --gold: #b8860b;
+    --gold: #b8860b;/*Initialises variale for gold font*/
 }
 
 .title-text {
-  font-family: "Dancing Script", cursive;
+  font-family: "Dancing Script", cursive;/*cursive backup instead of default sans-serif*/
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
@@ -13,7 +14,7 @@
 }
 
 .main-text {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Quicksand", sans-serif;/*preferred Quicksand font sans-serif backup*/
   font-optical-sizing: auto;
   font-weight: 350;
   font-style: normal;
@@ -21,12 +22,31 @@
 
 
 .subtitle-text {
-  font-family: "League Spartan", sans-serif;
+  font-family: "League Spartan", sans-serif;/*uses preferred font of LS with sans-serif backup*/
   font-optical-sizing: auto;
-  font-weight: 500;
+  font-weight: 500;/*size of the text*/
   font-style: normal;
   font-size: 1.75rem;
-  color: var(--gold);
+  color: var(--gold);/*uses gold variable for color of font*/
+}
+
+.image-section {
+    display: block;
+    margin: 1rem auto;/*auto center in the margins*/
+    max-width: 100%;/*never wider than the screen*/
+    height: auto;/*keep auto proportions*/
+}
+
+.text-with-image {
+    display: flex;
+    align-items: center;   /* vertically centres the image with the text */
+    gap: 2rem;
+}
+
+.side-image {
+    width: 40%;
+    max-width: 100%;
+    height: auto;
 }
 
 .center-middle {
