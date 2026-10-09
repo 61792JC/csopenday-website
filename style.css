@@ -44,8 +44,8 @@
 }
 
 .side-image {
-    width: 40%;
-    max-width: 100%;
+    flex: 0 0 280px;
+    width: 280px;
     height: auto;
 }
 
