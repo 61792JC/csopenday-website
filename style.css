@@ -49,6 +49,9 @@
     height: auto;
 }
 
+body {
+    margin: 0;
+}
 .page-container {
     max-width: 900px;
     margin: 0 auto;
