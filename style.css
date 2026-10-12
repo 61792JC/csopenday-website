@@ -4,6 +4,10 @@
     --gold: #b8860b;/*Initialises variale for gold font*/
 }
 
+h2 {
+  text-decoration: underline 5px;
+}
+
 .title-text {
   font-family: "Dancing Script", cursive;/*cursive backup instead of default sans-serif*/
   font-optical-sizing: auto;
