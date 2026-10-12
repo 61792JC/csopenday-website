@@ -4,7 +4,7 @@
     --gold: #b8860b;/*Initialises variale for gold font*/
 }
 
-h2 {
+.h2 {
   text-decoration: underline 5px;
 }
 
