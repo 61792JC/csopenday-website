@@ -4,6 +4,41 @@
     --gold: #b8860b;/*Initialises variale for gold font*/
 }
 
+/*
+Source - https://stackoverflow.com/a/74183835
+Posted by voaneves, modified by community. See post 'Timeline' for change history
+Retrieved 2026-10-13, License - CC BY-SA 4.0
+*/
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-primary: #0a0a0a;
+        --color-secondary: #339eff;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --color-primary: #ffffff;
+        --color-secondary: #ff7e33;
+    }
+}
+
+.light-mode {
+    --color-primary: #ffffff;
+    --color-secondary: #ff7e33;
+}
+
+.dark-mode {
+    --color-primary: #0a0a0a;
+    --color-secondary: #339eff;
+}
+
+body {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
 .h2 {
   text-decoration: underline 5px;
 }
