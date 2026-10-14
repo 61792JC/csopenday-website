@@ -1,111 +1,118 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=League+Spartan:wght@500&family=Quicksand:wght@300..700&display=swap");
 
+/*actually uses specific colors for the texts*/
 :root {
-    --gold: #b8860b;
-    /* Default system preference colors */
-    --color-primary: #ffffff;
-    --color-secondary: #ff7e33;
-    --color-text: #000000; /* Default black text */
+  --gold: #b8860b;
+  --white: #ffffff;
+  --black: #000000;
+  --dark-bg: #0a0a0a;
+  --light-accent: #ff7e33;
+  --dark-accent: #339eff;
 }
 
+/*  Light Mode (Default) */
+:root, 
+body.light-mode {
+  --color-primary: var(--white) !important;
+  --color-text: var(--black) !important;
+  --color-secondary: var(--light-accent) !important;
+}
+
+/*  Dark Mode (Class or System Preference) */
 @media (prefers-color-scheme: dark) {
-    :root {
-        --color-primary: #0a0a0a;
-        --color-secondary: #339eff;
-        --color-text: #ffffff; /* Default white text */
-    }
+  :root {
+    --color-primary: var(--dark-bg);
+    --color-text: var(--white);
+    --color-secondary: var(--dark-accent);
+  }
 }
 
-/* Theme classes for manual toggling */
-.light-mode {
-    --color-primary: #ffffff;
-    --color-secondary: #ff7e33;
-    --color-text: #000000;
+body.dark-mode {
+  --color-primary: var(--dark-bg) !important;
+  --color-text: var(--white) !important;
+  --color-secondary: var(--dark-accent) !important;
 }
 
-.dark-mode {
-    --color-primary: #0a0a0a;
-    --color-secondary: #339eff;
-    --color-text: #ffffff;
-}
-
+/* Global Styles */
 body {
-    margin: 0;
-    background-color: var(--color-primary);
-    color: var(--color-text); /* Now uses the black/white variable */
-    font-family: "Quicksand", sans-serif; /* Set a default font for the whole page */
-    line-height: 1.6; /* Better readability */
+  margin: 0;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  transition: background-color 0.3s, color 0.3s;
+  font-family: Quicksand, sans-serif;
 }
 
 .page-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-/* Headings */
+/* Text Fixes */
+.main-text {
+  font-family: Quicksand, sans-serif;
+  font-weight: 350;
+  color: var(--color-text) !important; /* force black/white toggle */
+}
+
 .title-text {
-    font-family: "Dancing Script", cursive;
-    font-weight: 700;
-    text-align: center;
-    color: var(--gold);
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+  text-align: center;
+  color: var(--gold);
 }
 
 .subtitle-text {
-    font-family: "League Spartan", sans-serif;
-    font-weight: 500;
-    font-size: 1.75rem;
-    color: var(--gold);
+  font-family: "League Spartan", sans-serif;
+  font-weight: 500;
+  font-size: 1.75rem;
+  color: var(--color-text); /* matches main text */
 }
 
-.h2 {
-    text-decoration: underline 5px;
-    color: var(--color-secondary); /* Headings can still use the accent color */
-}
-
-/* Paragraphs and Text */
-.main-text {
-    font-weight: 350;
-    margin-bottom: 1rem;
-}
-
-/* Layouts */
-.text-with-image {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap; /* Helps on mobile screens */
-}
-
-.side-image {
-    flex: 0 0 280px;
-    width: 280px;
-    height: auto;
-    border-radius: 8px; /* Adds a modern touch */
-}
-
-.big-image {
-    height: 75vh;
-    width: 100%;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-image: url("https://web.archive.org/web/20191121164451im_/http://stylecounsel.nz/wp-content/uploads/closet-shot.jpg");
-}
-
-.overlay {
-    position: absolute;
-    inset: 0; /* Modern shortcut for top/left/right/bottom: 0 */
-    background: rgba(0, 0, 0, 0.65);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+/* override for gold headers if needed */
+.subtitle-text.h2 {
+  color: var(--gold) !important;
+  text-decoration: underline 5px;
 }
 
 .hyperlinks {
-    color: var(--gold);
-    text-decoration: none;
-    font-weight: 500;
+  font-family: Quicksand, sans-serif;
+  color: var(--gold);
 }
+
+/* Layout */
+.text-with-image {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.side-image {
+  flex: 0 0 280px;
+  width: 280px;
+  height: auto;
+}
+
+.big-image {
+  height: 75vh;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://web.archive.org/web/20191121164451im_/http://stylecounsel.nz/wp-content/uploads/closet-shot.jpg");
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  color: white; /* Contrast text on hero image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.center-middle { text-align: center; }
+.center-left { text-align: left; }
+.center-right { text-align: right; }
