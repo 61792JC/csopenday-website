@@ -27,11 +27,17 @@ Retrieved 2026-10-13, License - CC BY-SA 4.0
 .light-mode {
     --color-primary: #ffffff;
     --color-secondary: #ff7e33;
+    --text-main: #000000; /* Added for light mode */
 }
 
 .dark-mode {
     --color-primary: #0a0a0a;
     --color-secondary: #339eff;
+    --text-main: #ffffff; /* Added for dark mode */
+}
+
+p, .main-text { /* Applies tje concurrent mode's theme for paragraph text */
+  color: var(--text-main);
 }
 
 body {
