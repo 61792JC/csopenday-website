@@ -75,7 +75,7 @@ body {
 .text-with-image { display:flex; align-items:flex-start; gap:1.5rem; margin:2.5rem 0; }
 .text-with-image > div { flex:1 1 60%; }
 
-.side-image { flex:0 0 260px; width:260px; height:260px; object-fit:cover; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.25); }
+.side-image { flex:0 0 260px; width:260px; height:auto; object-fit:contain; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.25); }
 
 .content-card { background:var(--card-bg-light); padding:1rem 1.25rem; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.04); border:1px solid rgba(0,0,0,0.04); }
 body.dark-theme .content-card { background:var(--card-bg-dark); box-shadow:0 8px 20px rgba(0,0,0,0.18); border:1px solid rgba(255,255,255,0.03); }
@@ -83,7 +83,7 @@ body.dark-theme .content-card { background:var(--card-bg-dark); box-shadow:0 8px
 /* 50/50 grid for larger image */
 .quote-image.grid-50-50 { display: grid; grid-template-columns: 1fr 1fr; gap:1.5rem; align-items:center; margin:1.25rem 0 1.5rem; }
 .image-wrap { overflow:hidden; border-radius:10px; }
-.image-section { width:100%; height:420px; object-fit:cover; display:block; border-radius:10px; box-shadow:0 12px 36px rgba(0,0,0,0.14); }
+.image-section { width:100%; height:auto; object-fit:contain; display:block; border-radius:10px; box-shadow:0 12px 36px rgba(0,0,0,0.14); }
 
 .quote-wrap { padding:0.25rem 0.5rem; display:flex; flex-direction:column; justify-content:center; }
 .quote { margin:0; font-style:italic; font-size:1.2rem; line-height:1.6; color:var(--color-text) !important; }
@@ -94,9 +94,9 @@ body.dark-theme .content-card { background:var(--card-bg-dark); box-shadow:0 8px
 
 @media (max-width:860px) {
   .quote-image.grid-50-50 { grid-template-columns: 1fr; }
-  .image-section { height:auto; aspect-ratio:16/9; }
+  .image-section { height:auto; }
   .text-with-image { flex-direction:column-reverse; align-items:center; }
-  .side-image { width:100%; max-width:420px; height:auto; aspect-ratio:16/9; }
+  .side-image { width:100%; max-width:420px; height:auto; }
   .page-container { padding:1rem; }
   .big-image { height:40vh; }
 }
