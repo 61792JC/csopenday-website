@@ -82,6 +82,11 @@ body {
   color: var(--gold) !important;
 }
 
+/* Ensure underlined subtitles are gold as requested */
+.subtitle-text.underlined {
+  color: var(--gold) !important;
+}
+
 /* Underlined subtitle using a decorative bar for a clean look */
 .underlined {
   position: relative;
@@ -180,10 +185,46 @@ body.dark-theme .content-card {
   border: 1px solid rgba(255,255,255,0.03);
 }
 
+/* Quote-image block used in Body Type Analysis */
+.quote-image {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  justify-content: center;
+  margin: 1.25rem 0 1.5rem;
+  flex-wrap: wrap;
+}
+
+.image-section {
+  flex: 0 0 220px;
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.quote {
+  max-width: 520px;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0;
+}
+.quote .attribution {
+  display: block;
+  margin-top: 0.6rem;
+  font-weight: 600;
+  color: var(--gold);
+  font-style: normal;
+}
+
 /* Make the images match height/scale to text block by forcing a square, responsive size */
 @media (max-width: 800px) {
   .text-with-image { flex-direction: column-reverse; align-items: center; }
   .side-image { width: 100%; max-width: 420px; height: auto; aspect-ratio: 16/9; }
+  .image-section { width: 100%; max-width: 420px; height: auto; aspect-ratio: 16/9; }
   .page-container { padding: 1rem; }
   .big-image { height: 40vh; }
 }
