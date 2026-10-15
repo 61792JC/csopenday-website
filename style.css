@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=League+Spartan:wght@500&family=Quicksand:wght@300..700&display=swap");
 
-/*actually uses specific colors for the texts*/
+/* Color system */
 :root {
   --gold: #b8860b;
   --white: #ffffff;
@@ -8,17 +8,14 @@
   --dark-bg: #0a0a0a;
   --light-accent: #ff7e33;
   --dark-accent: #339eff;
+
+  /* Defaults (light) */
+  --color-primary: var(--white);
+  --color-text: var(--black);
+  --color-secondary: var(--light-accent);
 }
 
-/*  Light Mode (Default) */
-:root, 
-body.light-mode {
-  --color-primary: var(--white) !important;
-  --color-text: var(--black) !important;
-  --color-secondary: var(--light-accent) !important;
-}
-
-/*  Dark Mode (Class or System Preference) */
+/* Dark theme when class is present or system preference */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-primary: var(--dark-bg);
@@ -27,74 +24,71 @@ body.light-mode {
   }
 }
 
-body.dark-mode {
+/* Support the theme class names used by the script: `light-theme` and `dark-theme` */
+body.light-theme {
+  --color-primary: var(--white) !important;
+  --color-text: var(--black) !important;
+  --color-secondary: var(--light-accent) !important;
+}
+
+body.dark-theme {
   --color-primary: var(--dark-bg) !important;
   --color-text: var(--white) !important;
   --color-secondary: var(--dark-accent) !important;
 }
 
 /* Global Styles */
+* { box-sizing: border-box; }
 body {
   margin: 0;
   background-color: var(--color-primary);
   color: var(--color-text);
-  transition: background-color 0.3s, color 0.3s;
-  font-family: Quicksand, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  font-family: Quicksand, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .page-container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 2rem 1.25rem;
 }
 
-/* Text Fixes */
-.main-text {
-  font-family: Quicksand, sans-serif;
-  font-weight: 350;
-  color: var(--color-text) !important; /* force black/white toggle */
-}
-
+/* Headings & Text */
 .title-text {
   font-family: "Dancing Script", cursive;
   font-weight: 700;
   text-align: center;
   color: var(--gold);
+  font-size: 2.75rem;
+  margin: 0.25rem 0 0.5rem;
 }
 
 .subtitle-text {
   font-family: "League Spartan", sans-serif;
-  font-weight: 500;
-  font-size: 1.75rem;
-  color: var(--color-text); /* matches main text */
+  font-weight: 600;
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+  color: var(--color-text);
 }
 
-/* override for gold headers if needed */
-.subtitle-text.h2 {
-  color: var(--gold) !important;
-  text-decoration: underline 5px;
-}
-
-.hyperlinks {
+.main-text {
   font-family: Quicksand, sans-serif;
-  color: var(--gold);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin: 0.5rem 0;
 }
 
-/* Layout */
-.text-with-image {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
+/* Small utility alignment classes */
+.center-middle { text-align: center; }
+.center-left { text-align: left; }
+.center-right { text-align: right; }
 
-.side-image {
-  flex: 0 0 280px;
-  width: 280px;
-  height: auto;
-}
-
+/* Hero */
 .big-image {
-  height: 75vh;
+  height: 60vh;
   width: 100%;
   position: relative;
   background-size: cover;
@@ -105,14 +99,66 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  color: white; /* Contrast text on hero image */
+  background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.45));
+  color: var(--color-text);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
 }
 
-.center-middle { text-align: center; }
-.center-left { text-align: left; }
-.center-right { text-align: right; }
+.overlay .title-text { color: var(--gold); }
+.overlay .main-text { color: var(--white); font-size: 1.1rem; }
+
+#theme {
+  appearance: none;
+  border: 2px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Text-with-image layout */
+.text-with-image {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.text-with-image > div { flex: 1 1 60%; }
+
+.side-image {
+  flex: 0 0 260px;
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Make the images match height/scale to text block by forcing a square, responsive size */
+@media (max-width: 800px) {
+  .text-with-image { flex-direction: column-reverse; align-items: center; }
+  .side-image { width: 100%; max-width: 420px; height: auto; aspect-ratio: 16/9; }
+  .page-container { padding: 1rem; }
+  .big-image { height: 40vh; }
+}
+
+/* Subtle footer */
+footer {
+  margin: 3rem 0 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Decorative accents */
+.subtitle-text.h2 { color: var(--gold); text-decoration: underline 4px rgba(0,0,0,0.06); }
+
+/* Accessibility: focus styling on interactive elements */
+button:focus, a:focus { outline: 3px solid var(--color-secondary); outline-offset: 3px; }
