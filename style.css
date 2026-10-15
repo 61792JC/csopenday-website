@@ -49,7 +49,7 @@ body {
 
 .page-container { max-width: 1000px; margin: 0 auto; padding: 2rem 1.25rem; }
 
-.title-text { font-family: "Dancing Script", cursive; font-weight:700; text-align:center; color:var(--gold); font-size:2.75rem; margin:0.25rem 0 0.5rem; }
+.title-text { font-family: "Dancing Script", cursive; font-weight:750; text-align:center; color:var(--gold); font-size:3rem; margin:0.25rem 0 0.5rem; }
 
 .subtitle-text { font-family:"League Spartan",sans-serif; font-weight:600; font-size:1.6rem; margin:0.5rem 0 0.75rem; color:var(--color-text); }
 
