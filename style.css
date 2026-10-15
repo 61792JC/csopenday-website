@@ -53,6 +53,14 @@ body {
 
 .subtitle-text { font-family:"League Spartan",sans-serif; font-weight:600; font-size:1.6rem; margin:0.5rem 0 0.75rem; color:var(--color-text); }
 
+.counsel-accent {/*Gives the counsel in "Style COUNSEL" for the title the custom settings */
+  font-family: "League Spartan", sans-serif;
+  font-size: 0.45em;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
 /* Force gold subtitle */
 .subtitle-gold { color: var(--gold) !important; }
 
