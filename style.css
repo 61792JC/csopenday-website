@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=League+Spartan:wght@500&family=Quicksand:wght@300..700&display=swap");
 
-/* Color system */
+
 :root {
   --gold: #b8860b;
   --white: #ffffff;
@@ -9,17 +9,17 @@
   --light-accent: #ff7e33;
   --dark-accent: #339eff;
 
-  /* Defaults (light) */
+  /*light default sets*/
   --color-primary: var(--white);
   --color-text: var(--black);
   --color-secondary: var(--light-accent);
 
-  /* cards */
+  /* cards*/
   --card-bg-light: rgba(0,0,0,0.03);
   --card-bg-dark: rgba(255,255,255,0.02);
 }
 
-/* Dark theme when class is present or system preference */
+/* dark theme for class when enabled*/
 @media (prefers-color-scheme: dark) {
   :root {
     --color-primary: var(--dark-bg);
@@ -28,7 +28,7 @@
   }
 }
 
-/* Support the theme class names used by the script: `light-theme` and `dark-theme` */
+/* Support the theme class names for script*/
 body.light-theme {
   --color-primary: var(--white) !important;
   --color-text: var(--black) !important;
@@ -41,7 +41,7 @@ body.dark-theme {
   --color-secondary: var(--dark-accent) !important;
 }
 
-/* Global Styles */
+/* styles for the global body*/
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -59,9 +59,8 @@ body {
   padding: 2rem 1.25rem;
 }
 
-/* Headings & Text */
 .title-text {
-  font-family: "Dancing Script", cursive;
+  font-family: "Dancing Script", cursive; /*text for titles*/
   font-weight: 700;
   text-align: center;
   color: var(--gold);
@@ -70,24 +69,24 @@ body {
 }
 
 .subtitle-text {
-  font-family: "League Spartan", sans-serif;
+  font-family: "League Spartan", sans-serif;/*text for the main subtitles*/
   font-weight: 600;
   font-size: 1.6rem;
   margin: 0.5rem 0 0.75rem;
   color: var(--color-text);
 }
 
-/* FORCE a gold subtitle when requested */
+/* ensure gold subtitles (plz work) */
 .subtitle-gold {
   color: var(--gold) !important;
 }
 
-/* Ensure underlined subtitles are gold as requested */
+/* MAKE THE underlined subtitles gold */
 .subtitle-text.underlined {
   color: var(--gold) !important;
 }
 
-/* Underlined subtitle using a decorative bar for a clean look */
+/* Underlined subtitle using a decorative bar*/
 .underlined {
   position: relative;
   padding-bottom: 0.6rem;
@@ -102,7 +101,7 @@ body {
   border-radius: 3px;
 }
 
-.main-text {
+.main-text {/*text for main paragraph body*/
   font-family: Quicksand, sans-serif;
   font-weight: 400;
   line-height: 1.7;
@@ -110,12 +109,12 @@ body {
   margin: 0.75rem 0;
 }
 
-/* Small utility alignment classes */
+/* little varible thing for alignig specifically */
 .center-middle { text-align: center; }
 .center-left { text-align: left; }
 .center-right { text-align: right; }
 
-/* Hero */
+/* for title/hero image */
 .big-image {
   height: 60vh;
   width: 100%;
@@ -152,7 +151,7 @@ body {
   font-weight: 600;
 }
 
-/* Text-with-image layout */
+/* text with the image layout */
 .text-with-image {
   display: flex;
   align-items: flex-start;
@@ -185,7 +184,7 @@ body.dark-theme .content-card {
   border: 1px solid rgba(255,255,255,0.03);
 }
 
-/* Quote-image block used in Body Type Analysis */
+/* Qquote block used in the "body type analysis section" */
 .quote-image {
   display: flex;
   align-items: center;
@@ -204,7 +203,7 @@ body.dark-theme .content-card {
   box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-.quote {
+.quote {/*for the quote sections*/
   max-width: 520px;
   font-style: italic;
   font-size: 1.05rem;
@@ -212,7 +211,7 @@ body.dark-theme .content-card {
   color: var(--color-text);
   margin: 0;
 }
-.quote .attribution {
+.quote .attribution {/* give the quotes an actual theme/setrting */
   display: block;
   margin-top: 0.6rem;
   font-weight: 600;
@@ -220,7 +219,7 @@ body.dark-theme .content-card {
   font-style: normal;
 }
 
-/* Make the images match height/scale to text block by forcing a square, responsive size */
+/* Make the images match height */
 @media (max-width: 800px) {
   .text-with-image { flex-direction: column-reverse; align-items: center; }
   .side-image { width: 100%; max-width: 420px; height: auto; aspect-ratio: 16/9; }
@@ -229,11 +228,11 @@ body.dark-theme .content-card {
   .big-image { height: 40vh; }
 }
 
-/* Section separators to reduce bulk and improve reading flow */
+/* Section separator */
 section { padding: 1.5rem 0; }
 .text-with-image + section, .text-with-image + .text-with-image { margin-top: 2rem; }
 
-/* Subtle footer */
+/* footer */
 footer {
   margin: 3rem 0 2rem;
   padding-top: 1rem;
@@ -243,5 +242,5 @@ footer {
 /* Decorative accents */
 .subtitle-text.h2 { color: var(--gold); text-decoration: underline 4px rgba(0,0,0,0.06); }
 
-/* Accessibility: focus styling on interactive elements */
+/*focus styling on interactive elements */
 button:focus, a:focus { outline: 3px solid var(--color-secondary); outline-offset: 3px; }
