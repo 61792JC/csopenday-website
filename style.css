@@ -47,8 +47,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.text-with-image > .image-quote-wrap { flex: 0 0 260px; }
-
 .page-container { max-width: 1000px; margin: 0 auto; padding: 2rem 1.25rem; }
 
 .title-text { font-family: "Dancing Script", cursive; font-weight:750; text-align:center; color:var(--gold); font-size:3rem; margin:0.25rem 0 0.5rem; }
