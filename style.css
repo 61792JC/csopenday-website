@@ -13,6 +13,10 @@
   --color-primary: var(--white);
   --color-text: var(--black);
   --color-secondary: var(--light-accent);
+
+  /* cards */
+  --card-bg-light: rgba(0,0,0,0.03);
+  --card-bg-dark: rgba(255,255,255,0.02);
 }
 
 /* Dark theme when class is present or system preference */
@@ -69,16 +73,36 @@ body {
   font-family: "League Spartan", sans-serif;
   font-weight: 600;
   font-size: 1.6rem;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 0.75rem;
   color: var(--color-text);
+}
+
+/* FORCE a gold subtitle when requested */
+.subtitle-gold {
+  color: var(--gold) !important;
+}
+
+/* Underlined subtitle using a decorative bar for a clean look */
+.underlined {
+  position: relative;
+  padding-bottom: 0.6rem;
+}
+.underlined::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 4px;
+  background: var(--gold);
+  margin: 8px auto 0;
+  border-radius: 3px;
 }
 
 .main-text {
   font-family: Quicksand, sans-serif;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.7;
   color: var(--color-text);
-  margin: 0.5rem 0;
+  margin: 0.75rem 0;
 }
 
 /* Small utility alignment classes */
@@ -128,7 +152,7 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
-  margin: 2rem 0;
+  margin: 2.5rem 0;
 }
 
 .text-with-image > div { flex: 1 1 60%; }
@@ -142,6 +166,20 @@ body {
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
 }
 
+/* content card for the wardrobe section to separate it visually */
+.content-card {
+  background: var(--card-bg-light);
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+body.dark-theme .content-card {
+  background: var(--card-bg-dark);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
 /* Make the images match height/scale to text block by forcing a square, responsive size */
 @media (max-width: 800px) {
   .text-with-image { flex-direction: column-reverse; align-items: center; }
@@ -149,6 +187,10 @@ body {
   .page-container { padding: 1rem; }
   .big-image { height: 40vh; }
 }
+
+/* Section separators to reduce bulk and improve reading flow */
+section { padding: 1.5rem 0; }
+.text-with-image + section, .text-with-image + .text-with-image { margin-top: 2rem; }
 
 /* Subtle footer */
 footer {
