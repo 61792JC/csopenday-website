@@ -65,7 +65,7 @@ body {
 
 .center-middle{ text-align:center;} .center-left{ text-align:left;} .center-right{ text-align:right; }
 
-.big-image { height:60vh; width:100%; position:relative; background-size:cover; background-position:center; background-image:url("https://web.archive.org/web/20191121164451im_/http://stylecounsel.nz/wp-content/uploads/closet-shot.jpg"); }
+.big-image { height:60vh; width:100%; position:relative; background-size:cover; background-position:center; background-image:url("images/wardrobShot.jpg"); }
 .overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.45)); color:var(--color-text); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1.5rem; }
 .overlay .title-text { color:var(--gold); }
 .overlay .main-text { color:var(--white); font-size:1.1rem; }
