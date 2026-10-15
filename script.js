@@ -2,41 +2,46 @@
 // Posted by voaneves, modified by community. See post 'Timeline' for change history
 // Retrieved 2026-10-13, License - CC BY-SA 4.0
 
-// Updated to use the repo's existing theme class names: `light-theme` and `dark-theme`.
-// Ensures the body has black text for light-theme and white text for dark-theme.
+// Simplified and made robust: wait for DOM, guard missing button, toggle between
+// `light-theme` and `dark-theme` regardless of the system preference, and
+// explicitly set text color (black for light, white for dark).
 
 const LIGHT = "light-theme";
 const DARK = "dark-theme";
-const btn = document.getElementById("theme");
 
-btn.addEventListener("click", function () {
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  if (prefersDark) {
-    // User prefers dark: the button should toggle the light theme on/off
-    if (document.body.classList.contains(LIGHT)) {
-      // currently light -> switch back to dark
-      document.body.classList.remove(LIGHT);
-      document.body.classList.add(DARK);
-      document.body.style.color = "white";
-    } else {
-      // enable light theme
-      document.body.classList.add(LIGHT);
-      document.body.classList.remove(DARK);
-      document.body.style.color = "black";
-    }
+function applyThemeClass(theme) {
+  if (theme === LIGHT) {
+    document.body.classList.add(LIGHT);
+    document.body.classList.remove(DARK);
+    document.body.style.color = "black";
   } else {
-    // User prefers light: the button should toggle the dark theme on/off
-    if (document.body.classList.contains(DARK)) {
-      // currently dark -> switch back to light
-      document.body.classList.remove(DARK);
-      document.body.classList.add(LIGHT);
-      document.body.style.color = "black";
-    } else {
-      // enable dark theme
-      document.body.classList.add(DARK);
-      document.body.classList.remove(LIGHT);
-      document.body.style.color = "white";
-    }
+    document.body.classList.add(DARK);
+    document.body.classList.remove(LIGHT);
+    document.body.style.color = "white";
   }
-});
+}
+
+// Ensure the listener is attached after the DOM is ready and guard for missing button
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initThemeToggle);
+} else {
+  initThemeToggle();
+}
+
+function initThemeToggle() {
+  // Respect any initialization already applied in index.html, but ensure body color is set
+  if (document.body.classList.contains(LIGHT)) applyThemeClass(LIGHT);
+  else if (document.body.classList.contains(DARK)) applyThemeClass(DARK);
+
+  const btn = document.getElementById("theme");
+  if (!btn) return; // nothing to do if button is missing
+
+  btn.addEventListener("click", function () {
+    // Toggle based on the current class on the body, not the system preference
+    if (document.body.classList.contains(DARK)) {
+      applyThemeClass(LIGHT);
+    } else {
+      applyThemeClass(DARK);
+    }
+  });
+}
