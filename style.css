@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=League+Spartan:wght@500&family=Quicksand:wght@300..700&display=swap");
 
-
 :root {
   --gold: #b8860b;
   --white: #ffffff;
@@ -9,17 +8,14 @@
   --light-accent: #ff7e33;
   --dark-accent: #339eff;
 
-  /*light default sets*/
   --color-primary: var(--white);
   --color-text: var(--black);
   --color-secondary: var(--light-accent);
 
-  /* cards*/
   --card-bg-light: rgba(0,0,0,0.03);
   --card-bg-dark: rgba(255,255,255,0.02);
 }
 
-/* dark theme for class when enabled*/
 @media (prefers-color-scheme: dark) {
   :root {
     --color-primary: var(--dark-bg);
@@ -28,7 +24,6 @@
   }
 }
 
-/* Support the theme class names for script*/
 body.light-theme {
   --color-primary: var(--white) !important;
   --color-text: var(--black) !important;
@@ -41,7 +36,6 @@ body.dark-theme {
   --color-secondary: var(--dark-accent) !important;
 }
 
-/* styles for the global body*/
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -53,194 +47,67 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.page-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem 1.25rem;
+.page-container { max-width: 1000px; margin: 0 auto; padding: 2rem 1.25rem; }
+
+.title-text { font-family: "Dancing Script", cursive; font-weight:700; text-align:center; color:var(--gold); font-size:2.75rem; margin:0.25rem 0 0.5rem; }
+
+.subtitle-text { font-family:"League Spartan",sans-serif; font-weight:600; font-size:1.6rem; margin:0.5rem 0 0.75rem; color:var(--color-text); }
+
+/* Force gold subtitle */
+.subtitle-gold { color: var(--gold) !important; }
+
+/* Ensure underlined subtitle is gold */
+.subtitle-text.underlined { color: var(--gold) !important; }
+.underlined { position:relative; padding-bottom:0.6rem; }
+.underlined::after { content:""; display:block; width:56%; height:5px; background:var(--gold); margin:8px auto 0; border-radius:3px; }
+
+.main-text { font-family:Quicksand,sans-serif; font-weight:400; line-height:1.7; color:var(--color-text); margin:0.75rem 0; }
+
+.center-middle{ text-align:center;} .center-left{ text-align:left;} .center-right{ text-align:right; }
+
+.big-image { height:60vh; width:100%; position:relative; background-size:cover; background-position:center; background-image:url("https://web.archive.org/web/20191121164451im_/http://stylecounsel.nz/wp-content/uploads/closet-shot.jpg"); }
+.overlay { position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.45)); color:var(--color-text); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0.5rem; padding:1.5rem; }
+.overlay .title-text { color:var(--gold); }
+.overlay .main-text { color:var(--white); font-size:1.1rem; }
+
+#theme { appearance:none; border:2px solid var(--white); background:transparent; color:var(--white); padding:0.5rem 0.9rem; border-radius:999px; cursor:pointer; font-weight:600; }
+
+.text-with-image { display:flex; align-items:flex-start; gap:1.5rem; margin:2.5rem 0; }
+.text-with-image > div { flex:1 1 60%; }
+
+.side-image { flex:0 0 260px; width:260px; height:260px; object-fit:cover; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.25); }
+
+.content-card { background:var(--card-bg-light); padding:1rem 1.25rem; border-radius:10px; box-shadow:0 8px 20px rgba(0,0,0,0.04); border:1px solid rgba(0,0,0,0.04); }
+body.dark-theme .content-card { background:var(--card-bg-dark); box-shadow:0 8px 20px rgba(0,0,0,0.18); border:1px solid rgba(255,255,255,0.03); }
+
+/* ---- NEW/REPLACEMENT: ensure grid 50/50 exists and larger image ---- */
+.quote-image.grid-50-50 { display: grid; grid-template-columns: 1fr 1fr; gap:1.5rem; align-items:center; margin:1.25rem 0 1.5rem; }
+.image-wrap { overflow:hidden; border-radius:10px; }
+.image-section { width:100%; height:420px; object-fit:cover; display:block; border-radius:10px; box-shadow:0 12px 36px rgba(0,0,0,0.14); }
+
+.quote-wrap { padding:0.25rem 0.5rem; display:flex; flex-direction:column; justify-content:center; }
+.quote { margin:0; font-style:italic; font-size:1.2rem; line-height:1.6; color:var(--color-text) !important; }
+.attribution { margin-top:0.6rem; color:var(--gold); font-weight:700; font-style:normal; }
+
+/* fallback original small image rule kept below for other uses */
+.image-section.small { flex:0 0 220px; width:220px; height:220px; }
+
+@media (max-width:860px) {
+  .quote-image.grid-50-50 { grid-template-columns: 1fr; }
+  .image-section { height:auto; aspect-ratio:16/9; }
+  .text-with-image { flex-direction:column-reverse; align-items:center; }
+  .side-image { width:100%; max-width:420px; height:auto; aspect-ratio:16/9; }
+  .page-container { padding:1rem; }
+  .big-image { height:40vh; }
 }
 
-.title-text {
-  font-family: "Dancing Script", cursive; /*text for titles*/
-  font-weight: 700;
-  text-align: center;
-  color: var(--gold);
-  font-size: 2.75rem;
-  margin: 0.25rem 0 0.5rem;
-}
+section { padding:1.5rem 0; }
+.text-with-image + section, .text-with-image + .text-with-image { margin-top:2rem; }
 
-.subtitle-text {
-  font-family: "League Spartan", sans-serif;/*text for the main subtitles*/
-  font-weight: 600;
-  font-size: 1.6rem;
-  margin: 0.5rem 0 0.75rem;
-  color: var(--color-text);
-}
+footer { margin:3rem 0 2rem; padding-top:1rem; border-top:1px solid rgba(0,0,0,0.06); }
+.site-footer { background:transparent; padding:2rem 0; margin-top:2rem; border-top:1px solid rgba(0,0,0,0.06); }
+.site-footer .contact p { margin:0.25rem 0; }
+.site-footer a { color:var(--gold); text-decoration:none; }
+.site-footer a:hover { text-decoration:underline; }
 
-/* ensure gold subtitles (plz work) */
-.subtitle-gold {
-  color: var(--gold) !important;
-}
-
-/* MAKE THE underlined subtitles gold */
-.subtitle-text.underlined {
-  color: var(--gold) !important;
-}
-
-/* Underlined subtitle using a decorative bar*/
-.underlined {
-  position: relative;
-  padding-bottom: 0.6rem;
-}
-.underlined::after {
-  content: "";
-  display: block;
-  width: 60%;
-  height: 4px;
-  background: var(--gold);
-  margin: 8px auto 0;
-  border-radius: 3px;
-}
-
-.main-text {/*text for main paragraph body*/
-  font-family: Quicksand, sans-serif;
-  font-weight: 400;
-  line-height: 1.7;
-  color: var(--color-text);
-  margin: 0.75rem 0;
-}
-
-/* little varible thing for alignig specifically */
-.center-middle { text-align: center; }
-.center-left { text-align: left; }
-.center-right { text-align: right; }
-
-/* for title/hero image */
-.big-image {
-  height: 60vh;
-  width: 100%;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  background-image: url("https://web.archive.org/web/20191121164451im_/http://stylecounsel.nz/wp-content/uploads/closet-shot.jpg");
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.45));
-  color: var(--color-text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1.5rem;
-}
-
-.overlay .title-text { color: var(--gold); }
-.overlay .main-text { color: var(--white); font-size: 1.1rem; }
-
-#theme {
-  appearance: none;
-  border: 2px solid var(--white);
-  background: transparent;
-  color: var(--white);
-  padding: 0.5rem 0.9rem;
-  border-radius: 999px;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-/* text with the image layout */
-.text-with-image {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  margin: 2.5rem 0;
-}
-
-.text-with-image > div { flex: 1 1 60%; }
-
-.side-image {
-  flex: 0 0 260px;
-  width: 260px;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-}
-
-/* content card for the wardrobe section to separate it visually */
-.content-card {
-  background: var(--card-bg-light);
-  padding: 1rem 1.25rem;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-  border: 1px solid rgba(0,0,0,0.04);
-}
-body.dark-theme .content-card {
-  background: var(--card-bg-dark);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-  border: 1px solid rgba(255,255,255,0.03);
-}
-
-/* Qquote block used in the "body type analysis section" */
-.quote-image {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  justify-content: center;
-  margin: 1.25rem 0 1.5rem;
-  flex-wrap: wrap;
-}
-
-.image-section {
-  flex: 0 0 220px;
-  width: 220px;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
-.quote {/*for the quote sections*/
-  max-width: 520px;
-  font-style: italic;
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--color-text);
-  margin: 0;
-}
-.quote .attribution {/* give the quotes an actual theme/setrting */
-  display: block;
-  margin-top: 0.6rem;
-  font-weight: 600;
-  color: var(--gold);
-  font-style: normal;
-}
-
-/* Make the images match height */
-@media (max-width: 800px) {
-  .text-with-image { flex-direction: column-reverse; align-items: center; }
-  .side-image { width: 100%; max-width: 420px; height: auto; aspect-ratio: 16/9; }
-  .image-section { width: 100%; max-width: 420px; height: auto; aspect-ratio: 16/9; }
-  .page-container { padding: 1rem; }
-  .big-image { height: 40vh; }
-}
-
-/* Section separator */
-section { padding: 1.5rem 0; }
-.text-with-image + section, .text-with-image + .text-with-image { margin-top: 2rem; }
-
-/* footer */
-footer {
-  margin: 3rem 0 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(0,0,0,0.06);
-}
-
-/* Decorative accents */
-.subtitle-text.h2 { color: var(--gold); text-decoration: underline 4px rgba(0,0,0,0.06); }
-
-/*focus styling on interactive elements */
-button:focus, a:focus { outline: 3px solid var(--color-secondary); outline-offset: 3px; }
+button:focus, a:focus { outline:3px solid var(--color-secondary); outline-offset:3px; }
